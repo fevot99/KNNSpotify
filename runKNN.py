@@ -65,18 +65,19 @@ if song_input:
 
 # Adding a button
 if st.button('Add to Playlist'):
-    st.write('Tick the songs you like to add to Playlist')
+    st.write('Song added to Playlist')
+st.write('Tick the songs you like to add to Playlist')
 
 # Adding a button
 if st.button('Click to refresh playlist'):
-    st.write('Here is your currrent playlist')
+    st.write('Updated Playlist')
 
+st.write("Here is your current playlist:")
 # Dataframe display
 playlist_df = pd.DataFrame({
     'Songs': ["Moonlight Sonata", "Viva la Vida", "Toccata and Fugue in D Minor"],
     'Artist': ["Ludwig van Beethoven", "Coldplay", "Johann Sebastian Bach"]
     })
-st.write("Here is your current playlist:")
 st.write(playlist_df)
 
 # Display the selected option
