@@ -7,6 +7,10 @@ import numpy as np
 
 # Title and description of the Streamlit app
 st.title('Music Recommender System')
+
+st.write("Please enter your User ID.")
+st.write("Please click to refresh your current Music Playlist.")
+
 st.write("Enter a song name and get 5 similar song recommendations based on KNN.")
 
 # Load your preprocessed dataset (assuming you have a dataframe `df` with 'song', 'artist', and feature columns)
@@ -58,3 +62,5 @@ def recommender(song_name, recommendation_set, model):
 if song_input:
     recommended_songs = recommender(song_input, X, knn10)
     # st.write("\n".join(recommended_songs), "\n")
+
+st.write("Please tick the boxes to add to the music playlist.")
