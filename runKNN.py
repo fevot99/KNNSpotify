@@ -42,5 +42,5 @@ def recommender(song_name, df, model):
 
 # If the user has entered a song name, perform the recommendation
 if song_name:
-    recommended_songs = recommender(song_name, df, knn_model)
+    recommended_songs = recommender(song_name, df, knn10)
     st.write("\n".join(recommended_songs))
