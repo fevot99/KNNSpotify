@@ -1,5 +1,5 @@
 numpy
-streamli
+streamlit
 seaborn
 matplotlib
 plotly
