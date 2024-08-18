@@ -11,7 +11,7 @@ st.write("Enter a song name and get 5 similar song recommendations based on KNN.
 
 # Load your preprocessed dataset (assuming you have a dataframe `df` with 'song', 'artist', and feature columns)
 # Example DataFrame structure:
-df = pd.read_csv('50000 Spotify Songs.csv') # Preprocessed music data with numerical features
+df = pd.read_csv('testpca.csv') # Preprocessed music data with numerical features
 
 # Load the trained KNN model from the pickle file
 with open('knn_model.pkl', 'rb') as f:
@@ -21,7 +21,7 @@ with open('knn_model.pkl', 'rb') as f:
 # features = ['danceability', 'energy', 'acousticness', 'tempo']
 # X = df[features]
 # X = df[['name', 'artist', 'tags', 'year', 'mode', 'acousticness', 'PCA_1']]
-X = df
+# X = df
 
 # Input field for song name
 song_input = st.text_input("Enter a song name:")
