@@ -19,7 +19,7 @@ st.write("Please click to refresh your current Music Playlist.")
 # Dataframe display
 playlist_df = pd.DataFrame({
     'First Column': [1, 2, 3],
-    'Second Column': [Moonlight Sonata, Shape of You, Dance Monkey ]
+    'Second Column': ["Moonlight Sonata", "Shape of You", "Dance Monkey"]
 })
 st.write("Here is your current playlist:")
 st.write(playlist_df)
