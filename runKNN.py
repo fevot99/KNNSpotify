@@ -32,8 +32,10 @@ def recommender(song_name, recommendation_set, model):
     # Use fuzzy matching to find the closest song name in the dataset
     idx=process.extractOne(song_name, recommendation_set['name'])[2]
     st.write(f"Song Selected: {df['name'][idx]} by {df['artist'][idx]}")
+
+    requiredSongs = recommendation_set.select_dtypes(np.number).drop(columns = ['time_signature','duration_ms', 'year']).copy()
+    # requiredSongs = recommendation_set.select_dtypes(np.number).drop(columns = ['cat','cluster','year']).copy()
     
-    requiredSongs = recommendation_set.select_dtypes(np.number).drop(columns = ['cat','cluster','year']).copy()
     # Find 5 nearest neighbors using KNN
     distances, indices = model.kneighbors(requiredSongs.iloc[idx].values.reshape(1,-1))
     
