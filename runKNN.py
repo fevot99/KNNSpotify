@@ -20,8 +20,8 @@ with open('knn_model.pkl', 'rb') as f:
 # Use the relevant features for similarity calculation
 # features = ['danceability', 'energy', 'acousticness', 'tempo']
 # X = df[features]
-selcol= ["name","artist","tags",'cat', 'cluster', 'year', 'mode', 'acousticness', 'PCA_1']
-df = df[selcol]
+# selcol= ['name','artist','tags','cat', 'cluster', 'year', 'mode', 'acousticness', 'PCA_1']
+# X = df[selcol]
 
 # Input field for song name
 song_input = st.text_input("Enter a song name:")
