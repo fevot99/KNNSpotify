@@ -38,16 +38,25 @@ def recommender(song_name, recommendation_set, model):
     
     # Find 5 nearest neighbors using KNN
     distances, indices = model.kneighbors(requiredSongs.iloc[idx].values.reshape(1,-1))
+
+    # Print recommended songs row by row
+    st.write("Recommended Songs:")
+    for i in range(len(distances[0])):  # distances[0] contains the distances of the nearest neighbors
+        recommended_idx = indices[0][i]  # Get the index of the recommended song
+        recommended_song = recommendation_set.iloc[recommended_idx]  # Get the song details
+        st.write(f"{i + 1}. {recommended_song['name']} by {recommended_song['artist']} (Distance: {distances[0][i]:.2f})")
+
+
     
     # Display the recommended songs
-    st.write("Recommended Songs:")
-    recommendations = []
-    # for i in indices[0]:
-    for i in indices:
-        recommendations.append(f"{df['name'][i]} by {df['artist'][i]}")
-    return recommendations
+    # st.write("Recommended Songs:")
+    # recommendations = []
+    # # for i in indices[0]:
+    # for i in indices:
+    #     recommendations.append(f"{df['name'][i]} by {df['artist'][i]}")
+    # return recommendations
 
 # If the user has entered a song name, perform the recommendation
-if song_input:
-    recommended_songs = recommender(song_input, X, knn10)
-    st.write("\n".join(recommended_songs))
+# if song_input:
+#     recommended_songs = recommender(song_input, X, knn10)
+#     st.write("\n".join(recommended_songs), "\n")
