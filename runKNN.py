@@ -47,8 +47,10 @@ def recommender(song_name, recommendation_set, model):
         recommendations.append(f"{df['name'][i]} by {df['artist'][i]}")
         # Print each recommended song row by row
         for song in recommendations:
-            st.write("\n", song)
-
+            st.write("Song Name Artist Name\n")
+            st.write(song)
+            st.write("\n")
+ 
 # If the user has entered a song name, perform the recommendation
 if song_input:
     recommended_songs = recommender(song_input, X, knn10)
