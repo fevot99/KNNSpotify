@@ -1,4 +1,4 @@
-nump
+numpy
 streamli
 seaborn
 matplotlib
