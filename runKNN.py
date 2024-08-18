@@ -22,7 +22,8 @@ with open('knn_model.pkl', 'rb') as f:
 # X = df[features]
 
 # Input field for song name
-song_name = st.text_input("Enter a song name:")
+song_input = st.text_input("Enter a song name:")
+st.write(song_input)
 
 # Recommendation function
 def recommender(song_name, recommendation_set, model):
@@ -45,6 +46,6 @@ def recommender(song_name, recommendation_set, model):
     return recommendations
 
 # If the user has entered a song name, perform the recommendation
-if song_name:
-    recommended_songs = recommender(song_name, df, knn10)
+if song_input:
+    recommended_songs = recommender(song_input, df, knn10)
     st.write("\n".join(recommended_songs))
