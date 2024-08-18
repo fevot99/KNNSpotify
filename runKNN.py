@@ -7,7 +7,7 @@ import numpy as np
 
 # Title and description of the Streamlit app
 st.title('Music Recommender System')
-st.write("Enter a song name and get 5 similar song recommendations based on content similarity.")
+st.write("Enter a song name and get 5 similar song recommendations based on KNN.")
 
 # Load your preprocessed dataset (assuming you have a dataframe `df` with 'song', 'artist', and feature columns)
 # Example DataFrame structure:
@@ -25,13 +25,17 @@ with open('knn_model.pkl', 'rb') as f:
 song_name = st.text_input("Enter a song name:")
 
 # Recommendation function
-def recommender(song_name, df, model):
+def recommender(song_name, recommendation_set, model):
     # Use fuzzy matching to find the closest song name in the dataset
-    idx = process.extractOne(song_name, df['song'])[2]
+    idx=process.extractOne(song_name, recommendation_set['name'])[2]
     st.write(f"Song Selected: {df['song'][idx]} by {df['artist'][idx]}")
     
-    # Find 5 nearest neighbors using cosine similarity
-    distances, indices = model.kneighbors(X.iloc[idx].values.reshape(1, -1))
+    requiredSongs = recommendation_set.select_dtypes(np.number).drop(columns = ['cat','cluster','year']).copy()
+    # Find 5 nearest neighbors using KNN
+    distances, indices = model.kneighbors(requiredSongs.iloc[idx].values.reshape(1,-1))
+    for i in indices:
+        print(df['name'][i] + "     " + df['artist'][i])
+        print(df['tags'][i])
     
     # Display the recommended songs
     st.write("Recommended Songs:")
