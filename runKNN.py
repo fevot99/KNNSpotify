@@ -41,6 +41,7 @@ def recommender(song_name, recommendation_set, model):
 
     # Display the recommended songs
     st.write("Recommended Songs:")
+    st.write("Song Name            Artist                    Genre\n")
     recommendations = []
     # for i in indices[0]:
     for i in indices:
