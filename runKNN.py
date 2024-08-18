@@ -50,7 +50,7 @@ def recommender(song_name, recommendation_set, model):
     # for i in indices[0]:
     for i in indices:
         recommendations.append(f"{df['name'][i]} by {df['artist'][i]}")
-        st.write(df['name'][i]                df['artist'][i]                     df['tags'][i], "\n")
+        st.write(f"df['name'][i], df['artist'][i], df['tags'][i]")
         
         # Print each recommended song row by row
         # for song in recommendations:
