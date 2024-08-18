@@ -50,8 +50,9 @@ def recommender(song_name, recommendation_set, model):
     # for i in indices[0]:
     for i in indices:
         recommendations.append(f"{df['name'][i]} by {df['artist'][i]}")
-        st.write(df['name'][i]     df['artist'][i]     df['tags'][i], "\n")
- 
+        # st.write(df['name'][i]     df['artist'][i]     df['tags'][i], "\n")
+    st.table(recommendations)
+
 # If the user has entered a song name, perform the recommendation
 if song_input:
     recommended_songs = recommender(song_input, X, knn10)
