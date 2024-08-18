@@ -13,25 +13,9 @@ st.write("Please enter your User ID")
 st.sidebar.title("Sidebar")
 option = st.sidebar.selectbox(
     'Please enter your User ID',
-    list(range(1, 11)))
+    list(range(1001, 1006)))
 
-st.write("Please click to refresh your current Music Playlist.")
-# Dataframe display
-playlist_df = pd.DataFrame({
-    'First Column': [1, 2, 3],
-    'Second Column': ["Moonlight Sonata", "Shape of You", "Dance Monkey"]
-})
-st.write("Here is your current playlist:")
-st.write(playlist_df)
-
-# Adding a button
-if st.button('Click to refresh playlist'):
-    st.write('Updated Playlist')
-   
-st.write("Enter a song name and get 5 similar song recommendations based on KNN.")
-
-# Load your preprocessed dataset (assuming you have a dataframe `df` with 'song', 'artist', and feature columns)
-# Example DataFrame structure:
+ # Load your preprocessed dataset
 df = pd.read_csv('testpca.csv') # Preprocessed music data with numerical features
 
 # Load the trained KNN model from the pickle file
@@ -41,7 +25,6 @@ with open('knn_model.pkl', 'rb') as f:
 # Use the relevant features for similarity calculation
 # features = ['danceability', 'energy', 'acousticness', 'tempo']
 # X = df[features]
-# X = df[['name', 'artist', 'tags', 'year', 'mode', 'acousticness', 'PCA_1']]
 X = df
 
 # Input field for song name
@@ -80,10 +63,25 @@ if song_input:
     recommended_songs = recommender(song_input, X, knn10)
     # st.write("\n".join(recommended_songs), "\n")
 
-st.write("Please tick the boxes to add to the music playlist.")
+st.write("Tick the songs you like")
 # Adding a button
 if st.button('Add to Playlist'):
     st.write('Added to Playlist')
+
+st.write("Enter a song name and get 5 similar song recommendations based on KNN.")
+st.write("Please click to refresh your current Music Playlist.")
+# Dataframe display
+playlist_df = pd.DataFrame({
+    'First Column': [1, 2, 3],
+    'Second Column': ["Moonlight Sonata", "Shape of You", "Dance Monkey"]
+})
+st.write("Here is your current playlist:")
+st.write(playlist_df)
+
+# Adding a button
+if st.button('Click to refresh playlist'):
+    st.write('Updated Playlist')
+
 
 # Display the selected option
 # st.write(f'The Songs you selected are: {option}')
