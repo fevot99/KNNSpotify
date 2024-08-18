@@ -20,8 +20,8 @@ with open('knn_model.pkl', 'rb') as f:
 # Use the relevant features for similarity calculation
 # features = ['danceability', 'energy', 'acousticness', 'tempo']
 # X = df[features]
-# selcol= ['name','artist','tags','cat', 'cluster', 'year', 'mode', 'acousticness', 'PCA_1']
-# X = df[selcol]
+# selcol = ['name','artist','tags','cat', 'cluster', 'year', 'mode', 'acousticness', 'PCA_1']
+# df = df[selcol]
 
 # Input field for song name
 song_input = st.text_input("Enter a song name:")
@@ -31,7 +31,7 @@ song_input = st.text_input("Enter a song name:")
 def recommender(song_name, recommendation_set, model):
     # Use fuzzy matching to find the closest song name in the dataset
     idx=process.extractOne(song_name, recommendation_set['name'])[2]
-    st.write(f"Song Selected: {df['song_name'][idx]} by {df['artist'][idx]}")
+    st.write(f"Song Selected: {df['name'][idx]} by {df['artist'][idx]}")
     
     requiredSongs = recommendation_set.select_dtypes(np.number).drop(columns = ['cat','cluster','year']).copy()
     # Find 5 nearest neighbors using KNN
@@ -42,7 +42,7 @@ def recommender(song_name, recommendation_set, model):
     recommendations = []
     # for i in indices[0]:
     for i in indices[0]:
-        recommendations.append(f"{df['song_name'][i]} by {df['artist'][i]}")
+        recommendations.append(f"{df['name'][i]} by {df['artist'][i]}")
     return recommendations
 
 # If the user has entered a song name, perform the recommendation
