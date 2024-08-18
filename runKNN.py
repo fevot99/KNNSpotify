@@ -13,7 +13,7 @@ st.write("Please enter your User ID")
 st.sidebar.title("Sidebar")
 option = st.sidebar.selectbox(
     'Please enter your User ID',
-    list(range(1, 11))
+    list(range(1, 11)))
 
 st.write("Please click to refresh your current Music Playlist.")
 # Dataframe display
