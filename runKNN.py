@@ -33,8 +33,8 @@ def recommender(song_name, recommendation_set, model):
     idx=process.extractOne(song_name, recommendation_set['name'])[2]
     st.write(f"Song Selected: {df['name'][idx]} by {df['artist'][idx]}")
 
-    requiredSongs = recommendation_set.select_dtypes(np.number).copy()
-    # requiredSongs = recommendation_set.select_dtypes(np.number).drop(columns = ['cat','cluster','year']).copy()
+    # requiredSongs = recommendation_set.select_dtypes(np.number).copy()
+    requiredSongs = recommendation_set.select_dtypes(np.number).drop(columns = ['cat','cluster','year']).copy()
     
     # Find 5 nearest neighbors using KNN
     distances, indices = model.kneighbors(requiredSongs.iloc[idx].values.reshape(1,-1))
