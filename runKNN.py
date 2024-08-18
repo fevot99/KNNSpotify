@@ -36,15 +36,13 @@ def recommender(song_name, recommendation_set, model):
     requiredSongs = recommendation_set.select_dtypes(np.number).drop(columns = ['cat','cluster','year']).copy()
     # Find 5 nearest neighbors using KNN
     distances, indices = model.kneighbors(requiredSongs.iloc[idx].values.reshape(1,-1))
-    for i in indices:
-        print(df['name'][i] + "     " + df['artist'][i])
-        print(df['tags'][i])
     
     # Display the recommended songs
     st.write("Recommended Songs:")
     recommendations = []
+    # for i in indices[0]:
     for i in indices[0]:
-        recommendations.append(f"{df['song_input'][i]} by {df['artist'][i]}")
+        recommendations.append(f"{df['song_name'][i]} by {df['artist'][i]}")
     return recommendations
 
 # If the user has entered a song name, perform the recommendation
