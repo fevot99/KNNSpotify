@@ -8,9 +8,26 @@ import numpy as np
 # Title and description of the Streamlit app
 st.title('Music Recommender System')
 
-st.write("Please enter your User ID.")
-st.write("Please click to refresh your current Music Playlist.")
+st.write("Please enter your User ID")
+# Adding a sidebar
+st.sidebar.title("Sidebar")
+option = st.sidebar.selectbox(
+    'Please enter your User ID',
+    list(range(1, 11))
 
+st.write("Please click to refresh your current Music Playlist.")
+# Dataframe display
+playlist_df = pd.DataFrame({
+    'First Column': [1, 2, 3],
+    'Second Column': [Moonlight Sonata, Shape of You, Dance Monkey ]
+})
+st.write("Here is your current playlist:")
+st.write(playlist_df)
+
+# Adding a button
+if st.button('Click to refresh playlist'):
+    st.write('Updated Playlist')
+   
 st.write("Enter a song name and get 5 similar song recommendations based on KNN.")
 
 # Load your preprocessed dataset (assuming you have a dataframe `df` with 'song', 'artist', and feature columns)
@@ -64,3 +81,13 @@ if song_input:
     # st.write("\n".join(recommended_songs), "\n")
 
 st.write("Please tick the boxes to add to the music playlist.")
+# Adding a button
+if st.button('Add to Playlist'):
+    st.write('Added to Playlist')
+
+# Display the selected option
+# st.write(f'The Songs you selected are: {option}')
+# Plotting a chart
+# st.line_chart(df)
+
+
