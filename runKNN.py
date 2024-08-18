@@ -9,7 +9,6 @@ import numpy as np
 st.title('Music Recommender System')
 st.write("Enter a song name and get 5 similar song recommendations based on KNN.")
 
-st.write("Please enter your User ID")
 # Adding a sidebar
 st.sidebar.title("Sidebar")
 option = st.sidebar.selectbox(
@@ -64,7 +63,6 @@ if song_input:
     recommended_songs = recommender(song_input, X, knn10)
     # st.write("\n".join(recommended_songs), "\n")
 
-st.write("Tick the songs you like")
 # Adding a button
 if st.button('Add to Playlist'):
     st.write('Tick the songs you like to add to Playlist')
