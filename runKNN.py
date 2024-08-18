@@ -46,7 +46,7 @@ def recommender(song_name, recommendation_set, model):
 
     # Display the recommended songs
     st.write("Recommended Songs:")
-    st.write("Song Name" + "           " + "Artist" + "                " + "Music Genre"\n")
+    st.write("Song Name" + "           " + "Artist" + "                " + "Music Genre\n")
     recommendations = []
     # for i in indices[0]:
     for i in indices:
@@ -73,7 +73,7 @@ st.write("Please click to refresh your current Music Playlist.")
 # Dataframe display
 playlist_df = pd.DataFrame({
     'Songs': ["Moonlight Sonata", "Viva la Vida", "Toccata and Fugue in D Minor"],
-    'Artist': ["Ludwig van Beethoven", "Coldplay", Johann Sebastian Bach]
+    'Artist': ["Ludwig van Beethoven", "Coldplay", "Johann Sebastian Bach"]
     })
 st.write("Here is your current playlist:")
 st.write(playlist_df)
