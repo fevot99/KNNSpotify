@@ -20,8 +20,8 @@ with open('knn_model.pkl', 'rb') as f:
 # Use the relevant features for similarity calculation
 # features = ['danceability', 'energy', 'acousticness', 'tempo']
 # X = df[features]
-# selcol = ['name','artist','tags','cat', 'cluster', 'year', 'mode', 'acousticness', 'PCA_1']
-# df = df[selcol]
+selcol = ['name', 'artist', 'tags', 'cat', 'cluster', 'year', 'mode', 'acousticness', 'PCA_1']
+X = df[selcol]
 
 # Input field for song name
 song_input = st.text_input("Enter a song name:")
@@ -47,5 +47,5 @@ def recommender(song_name, recommendation_set, model):
 
 # If the user has entered a song name, perform the recommendation
 if song_input:
-    recommended_songs = recommender(song_input, df, knn10)
+    recommended_songs = recommender(song_input, X, knn10)
     st.write("\n".join(recommended_songs))
