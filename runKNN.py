@@ -45,12 +45,12 @@ def recommender(song_name, recommendation_set, model):
 
     # Display the recommended songs
     st.write("Recommended Songs:")
-    st.write("Song Name \ Artist \ Music Genre\n")
+    st.write("Song Name \ Artist \ Music Genre Tags\n")
     recommendations = []
     # for i in indices[0]:
     for i in indices:
         recommendations.append(f"{df['name'][i]} by {df['artist'][i]}")
-        st.write(df['name'][i] + "\     " + df['artist'][i] + "\     " + df['tags'][i])
+        st.write(df['name'][i] + "   \   " + df['artist'][i] + "   \   " + df['tags'][i])
  
 
 # If the user has entered a song name, perform the recommendation
