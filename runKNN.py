@@ -15,11 +15,11 @@ df = pd.read_csv('50000 Spotify Songs.csv') # Preprocessed music data with numer
 
 # Load the trained KNN model from the pickle file
 with open('knn_model.pkl', 'rb') as f:
-    knn_model = pickle.load(f)
+    knn10 = pickle.load(f)
 
 # Use the relevant features for similarity calculation
-features = ['danceability', 'energy', 'acousticness', 'tempo']
-X = df[features]
+# features = ['danceability', 'energy', 'acousticness', 'tempo']
+# X = df[features]
 
 # Input field for song name
 song_name = st.text_input("Enter a song name:")
