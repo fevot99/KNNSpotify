@@ -7,7 +7,7 @@ import numpy as np
 
 # Title and description of the Streamlit app
 st.title('Music Recommender System')
-st.write("Enter a song name and get 5 similar song recommendations based on KNN.")
+st.write("Enter a song name and get 5 similar song recommendations based on content similarity.")
 
 # Adding a sidebar
 st.sidebar.title("Sidebar")
@@ -50,7 +50,8 @@ def recommender(song_name, recommendation_set, model):
     # for i in indices[0]:
     for i in indices:
         recommendations.append(f"{df['name'][i]} by {df['artist'][i]}")
-        st.write(df['name'][i] + "   \   " + df['artist'][i] + "   \   " + df['tags'][i])
+        # st.write(df['name'][i] + "   \   " + df['artist'][i] + "   \   " + df['tags'][i])
+        # st.write(df['name', 'artist', 'tags'][i])
  
 
 # If the user has entered a song name, perform the recommendation
@@ -75,9 +76,9 @@ playlist_df = pd.DataFrame({
     })
 st.write(playlist_df)
 
-# Display the selected option
-# st.write(f'The Songs you selected are: {option}')
-# Plotting a chart
-# st.line_chart(df)
+# Create a slider
+rating = st.slider("How old are you?", min_value=1, max_value=6, value=1)
 
+# Display the selected value
+st.write("Your have give a rating of ", age)
 
