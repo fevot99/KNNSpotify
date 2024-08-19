@@ -14,8 +14,11 @@ st.sidebar.title("Sidebar")
 option = st.sidebar.selectbox(
     'Please enter your User ID',
     list(range(1001, 1006)))
+   
+# st.image('pic.jpg')
+Age=st.sidebar.radio('Age Group',options=['>20+','20+',30+','40+', '>50'])
 
- # Load your preprocessed dataset
+# Load your preprocessed dataset
 df = pd.read_csv('testpca.csv') # Preprocessed music data with numerical features
 
 # Load the trained KNN model from the pickle file
@@ -79,4 +82,6 @@ st.write(playlist_df)
 
 # Display the selected value
 # st.write("You have given a rating of ", rating)
+
+
 
