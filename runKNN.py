@@ -16,7 +16,7 @@ option = st.sidebar.selectbox(
     list(range(1001, 1006)))
    
 # st.image('pic.jpg')
-Age=st.sidebar.radio('Age Group',options=['>20+','20+',30+','40+', '>50'])
+Age=st.sidebar.radio('Age Group',options=['>20+','20+','30+','40+','>50'])
 
 # Load your preprocessed dataset
 df = pd.read_csv('testpca.csv') # Preprocessed music data with numerical features
