@@ -50,9 +50,7 @@ def recommender(song_name, recommendation_set, model):
     # for i in indices[0]:
     for i in indices:
         recommendations.append(f"{df['name'][i]} by {df['artist'][i]}")
-        # st.write(df['name'][i] + "   \   " + df['artist'][i] + "   \   " + df['tags'][i])
-        # st.write(df['name', 'artist', 'tags'][i])
- 
+        st.write(df['name'][i] + "   \   " + df['artist'][i] + "   \   " + df['tags'][i])
 
 # If the user has entered a song name, perform the recommendation
 if song_input:
@@ -80,5 +78,5 @@ st.write(playlist_df)
 rating = st.slider("Please rate the recommended song", min_value=1, max_value=5, value=1)
 
 # Display the selected value
-st.write("You have given a star rating of ", rating)
+st.write("Thank you for your rating")
 
