@@ -7,7 +7,7 @@ import numpy as np
 
 # Title and description of the Streamlit app
 st.title('Music Recommender System')
-st.write("Enter a song name and get 5 similar song recommendations based on content similarity.")
+st.write("Enter a song name and get 5 similar song recommendations based on content similarity")
 
 # Adding a sidebar
 st.sidebar.title("Sidebar")
@@ -63,7 +63,7 @@ if song_input:
 # Adding a button
 if st.button('Add to Playlist'):
     st.write('Song added to Playlist')
-st.write('Tick the songs you like to add to Playlist')
+st.write('Tick the liked songs to add to Playlist')
 
 # Adding a button
 if st.button('Click to refresh playlist'):
