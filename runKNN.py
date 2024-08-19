@@ -75,8 +75,8 @@ playlist_df = pd.DataFrame({
 st.write(playlist_df)
 
 # Create a slider
-rating = st.slider("Please rate the recommended song", min_value=1, max_value=5, value=1)
+# rating = st.slider("Please rate the recommended song (5 being Highest", min_value=1, max_value=5, value=1)
 
 # Display the selected value
-st.write("Thank you for your rating")
+# st.write("You have given a rating of ", rating)
 
