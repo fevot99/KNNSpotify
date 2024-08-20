@@ -34,7 +34,7 @@ def recommender(song_name, recommendation_set):
     # Find the index of the song using fuzzy matching
     idx = process.extractOne(song_name, recommendation_set['name'])[2]
     st.write(f"Song Selected: {recommendation_set['name'][idx]} by {recommendation_set['artist'][idx]}")
-    st.write(f"Song Music Genre: {recommendation_set['tags'][idx]}")
+    st.write(f"Music Genre Information: {recommendation_set['tags'][idx]}")
      
     # Determine the cluster of the selected song
     query_cluster = recommendation_set['cluster'][idx]
