@@ -34,7 +34,7 @@ def recommender(song_name, recommendation_set):
     # Find the index of the song using fuzzy matching
     idx = process.extractOne(song_name, recommendation_set['name'])[2]
     st.write(f"Song Selected: {recommendation_set['name'][idx]} by {recommendation_set['artist'][idx]}")
-    st.write(f"Related Music Genre: {recommendation_set['tags'][idx]}")
+    st.write(f"Song Music Genre: {recommendation_set['tags'][idx]}")
      
     # Determine the cluster of the selected song
     query_cluster = recommendation_set['cluster'][idx]
@@ -90,7 +90,7 @@ song_name = st.text_input("Enter a song that you like:")
 
 if song_name:
     table_df = recommender(song_name, df)
-    st.write("These are some recommendeded songs that you may like: \n", table_df.head(10))
+    st.write("Here are some recommendeded songs that you may like: \n", table_df.head(10))
    
     # Filter to show only songs 2 to 6 (index 1 to 5)
     filtered_df = table_df.iloc[1:11].reset_index(drop=True)
