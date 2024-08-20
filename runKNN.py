@@ -55,10 +55,9 @@ def recommender(song_name, recommendation_set):
     knn10 = NearestNeighbors(metric='euclidean', algorithm='auto', n_neighbors=11) # Add 1 to account for the selected song itself
     knn20 = NearestNeighbors(metric='euclidean', algorithm='auto', n_neighbors=21)
     # knn10 = NearestNeighbors(metric='cosine', algorithm='auto', n_neighbors=10)
-    
-    model = knn10
 
-    # Prepare features for KNN
+    # KNN Model
+    model = knn10
     features = filtered_data.select_dtypes(np.number).drop(columns=['year', 'cluster'])
     model.fit(features)
 
@@ -90,7 +89,7 @@ song_name = st.text_input("Enter a song that you like:")
 
 if song_name:
     table_df = recommender(song_name, df)
-    st.write("Recommended songs that you may like: \n", table_df.head(10))
+    st.write("These are some recommendeded songs that you may like: \n", table_df.head(10))
    
     # Filter to show only songs 2 to 6 (index 1 to 5)
     filtered_df = table_df.iloc[1:11].reset_index(drop=True)
